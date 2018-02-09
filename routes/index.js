@@ -8,7 +8,7 @@ var assert = require('assert');
 var url = 'mongodb://localhost:27017/test';
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'URL Shortener' });
 });
 
 function isValidUrl(urlPassed) {
@@ -89,7 +89,7 @@ router.get('/new/*', function (req, res, next) {
             assert.equal(null, err);
             db.close();
             console.log('Item inserted!');
-            res.json({encodedurl:"localhost:8000/"+encodedUrl});
+            res.json({encodedurl:"http://13.127.147.8:8000/"+encodedUrl});
             res.end();
           });
         }
@@ -97,7 +97,7 @@ router.get('/new/*', function (req, res, next) {
           console.log(doc);
           
           var encodedId=encode(doc["_id"]);
-           res.json({encodedurl:"localhost:8000/"+ encodedId});
+           res.json({encodedurl:"http://13.127.147.8:8000/"+ encodedId});
             res.end();
         }
       });
