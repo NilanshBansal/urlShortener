@@ -90,7 +90,7 @@ router.get('/new/*', function (req, res, next) {
             assert.equal(null, err);
             db.close();
             console.log('Item inserted!');
-            res.json({encodedurl:"http://13.127.147.8:8000/"+encodedUrl});
+            res.json({encodedurl:"https://urlshortenerapp123.herokuapp.com/"+encodedUrl});
             res.end();
           });
         }
@@ -98,7 +98,7 @@ router.get('/new/*', function (req, res, next) {
           console.log(doc);
           
           var encodedId=encode(doc["_id"]);
-           res.json({encodedurl:"http://13.127.147.8:8000/"+ encodedId});
+           res.json({encodedurl:"https://urlshortenerapp123.herokuapp.com/"+ encodedId});
             res.end();
         }
       });
